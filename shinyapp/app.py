@@ -69,18 +69,48 @@ Here are some examples:
 Let's get started! 🚀
 
 <div class="position-relative">
-  <div class="position-absolute start-50 translate-middle rounded-pill badge border border-default text-bg-light text-center"
-      style="font-weight: normal; cursor: pointer;"
-      data-bs-toggle="popover"
-      title="Privacy notice"
-      data-bs-content="The Shiny team reserves the right to log your conversations and use them to fine-tune Shiny Assistant and improve Shiny. Also, all conversation activity and Shinylive editor content in this window will be sent to APIs controlled by Anthropic PBC. Please do not use Shiny Assistant for sensitive work!">
-    Who can see my activity?
+  <div id="privacy-notice-trigger" class="position-absolute start-50 translate-middle rounded-pill badge border border-default text-bg-light text-center"
+  data-bs-toggle="modal" data-bs-target="#privacy_notice_modal"
+      style="font-weight: normal; cursor: pointer;">
+    Privacy Notice
     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
       <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
       <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
     </svg>
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="privacy_notice_modal" tabindex="-1" aria-labelledby="privacy_notice_modal_label" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h1 class="modal-title fs-5" id="privacy_notice_modal_label">Privacy Notice</h1>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+<p>Shiny Assistant is a chatbot that uses <a href="https://www.anthropic.com/">Anthropic's</a> Claude  service and other tools and services. Any queries, data and/or other information you submit to Shiny Assistant will be processed by Posit and Anthropic and their third party subprocessors.</p>
+
+<p>Posit makes Shiny Assistant available "as is" and without warranty and assumes no liability for Shiny Assistant or your use of Shiny Assistant, including without limitation any processing of your data or the outputs produced by your use of Shiny Assistant.</p>
+
+<p>By using Shiny Assistant:</p>
+
+<ol type="i">
+    <li>you agree to Posit's <a href="https://posit.co/about/posit-service-terms-of-use/">Terms of Service</a> and <a href="https://posit.co/about/privacy-policy/">Privacy Policy</a> and Anthropic's policies including without limitation Anthropic's <a href="https://www.anthropic.com/legal/privacy">Privacy Policy</a> and <a href="https://www.anthropic.com/legal/aup">Usage Policy</a>,</li>
+    <li>you agree to cooperate with Anthropic's reasonable requests for information to support compliance with its Usage Policy, including to verify your identity and use of the Anthropic services and</li>
+    <li>you agree that you will not submit any personal information or data or sensitive data that is subject to regulations such as HIPAA, Gramm-Leach Bliley, or other similar laws, rules or regulations which impose data privacy or security obligations or use Shiny Assistant for High Risk Use Cases as defined in the Anthropic Usage Policy. </li>
+</ol>
+<p>
+If you do not agree to the foregoing, do not use Shiny Assistant.
+</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
 """
 
 
