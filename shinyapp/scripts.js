@@ -55,6 +55,13 @@ document.addEventListener("click", async (e) => {
   }
 });
 
+// Listener for privacy notice trigger
+document.addEventListener("click", (e) => {
+  if (e.target.closest("#privacy-notice-trigger")) {
+    Shiny.setInputValue("show_privacy_notice", Math.random());
+  }
+});
+
 // =====================================================================================
 // Functions for sending/requesting files from shinylive panel
 // =====================================================================================
