@@ -11,3 +11,8 @@ google-api-python-client
 markdown
 pandas
 requests
+
+# For instrumentation
+openai
+langfuse
+opentelemetry-instrumentation-anthropic
