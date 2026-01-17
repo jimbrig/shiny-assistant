@@ -46,7 +46,9 @@ if langfuse.auth_check():
     print("Langfuse client is authenticated and ready!")
     AnthropicInstrumentor().instrument()
 else:
-    print("Authentication failed. Please check your credentials and host.")
+    print(
+        "Authentication failed. Please check your LANGFUSE_SECRET_KEY, LANGFUSE_PUBLIC_KEY, and LANGFUSE_HOST environment variables."
+    )
 app_dir = Path(__file__).parent
 
 
