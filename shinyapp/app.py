@@ -44,11 +44,9 @@ langfuse = get_client()
 # Verify connection
 if langfuse.auth_check():
     print("Langfuse client is authenticated and ready!")
+    AnthropicInstrumentor().instrument()
 else:
     print("Authentication failed. Please check your credentials and host.")
-
-AnthropicInstrumentor().instrument()
-
 app_dir = Path(__file__).parent
 
 
