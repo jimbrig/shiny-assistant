@@ -14,14 +14,13 @@ from urllib.parse import parse_qs
 
 from anthropic import APIStatusError, AsyncAnthropic, RateLimitError
 from anthropic.types import CacheControlEphemeralParam, MessageParam
+from app_utils import load_dotenv
 from htmltools import Tag
 from langfuse import get_client
+from local_types import MessageParam2
 from opentelemetry.instrumentation.anthropic import AnthropicInstrumentor
 from shiny import App, Inputs, Outputs, Session, reactive, render, ui
 from shiny.ui._card import CardItem
-
-from app_utils import load_dotenv
-from local_types import MessageParam2
 
 # from signature import validate_email_server, validate_email_ui
 
@@ -81,7 +80,7 @@ Here are some examples:
 
 Let's get started! 🚀
 
-<div class="position-relative">
+<div class="position-relative" style="height: 1rem;">
   <div id="privacy-notice-trigger" class="position-absolute start-50 translate-middle rounded-pill badge border border-default text-bg-light text-center"
       style="font-weight: normal; cursor: pointer;">
     Privacy Notice&nbsp;
@@ -380,7 +379,7 @@ did not ask you to modify the code, then ignore the code.
         # Create a response message stream
         try:
             response_stream = await llm().messages.create(
-                model="claude-sonnet-4-20250514",
+                model="claude-sonnet-4-5",
                 system=[
                     {
                         "type": "text",
