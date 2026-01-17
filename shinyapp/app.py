@@ -14,11 +14,14 @@ from urllib.parse import parse_qs
 
 from anthropic import APIStatusError, AsyncAnthropic, RateLimitError
 from anthropic.types import CacheControlEphemeralParam, MessageParam
-from app_utils import load_dotenv
 from htmltools import Tag
-from local_types import MessageParam2
+from langfuse import get_client
+from opentelemetry.instrumentation.anthropic import AnthropicInstrumentor
 from shiny import App, Inputs, Outputs, Session, reactive, render, ui
 from shiny.ui._card import CardItem
+
+from app_utils import load_dotenv
+from local_types import MessageParam2
 
 # from signature import validate_email_server, validate_email_ui
 
@@ -36,6 +39,16 @@ google_analytics_id = os.environ.get("GOOGLE_ANALYTICS_ID", None)
 
 # email_sig_key = os.environ.get("EMAIL_SIGNATURE_KEY", None)
 
+langfuse = get_client()
+
+# Verify connection
+if langfuse.auth_check():
+    print("Langfuse client is authenticated and ready!")
+    AnthropicInstrumentor().instrument()
+else:
+    print(
+        "Authentication failed. Please check your LANGFUSE_SECRET_KEY, LANGFUSE_PUBLIC_KEY, and LANGFUSE_HOST environment variables."
+    )
 app_dir = Path(__file__).parent
 
 
